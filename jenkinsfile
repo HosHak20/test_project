@@ -20,11 +20,9 @@ pipeline{
             }
         }
         stage('Cover'){
-            steps{
-                post {
-                    always {
-                        archiveArtifacts artifacts: 'htmlcov/**', allowEmptyArchive: true
-                    }
+            post {
+                always {
+                    archiveArtifacts artifacts: 'htmlcov/**', allowEmptyArchive: true
                 }
             }
         }
