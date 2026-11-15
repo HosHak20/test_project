@@ -20,6 +20,12 @@ pipeline{
             }
         }
         stage('Cover'){
+            steps{
+                sh'''
+                    . .venv/bin/activate
+                    pytest --cov
+                '''
+            }
             post {
                 always {
                     archiveArtifacts artifacts: 'htmlcov/**', allowEmptyArchive: true
